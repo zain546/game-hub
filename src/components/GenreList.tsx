@@ -22,7 +22,9 @@ const GenreList = ({ selectedGenre, onSelectGenre }: Props) => {
   // if (isLoading) return <Spinner />;
   return (
     <>
-      <Heading fontSize='2xl' marginBottom={3}>Genres</Heading>
+      <Heading fontSize="2xl" marginBottom={3}>
+        Genres
+      </Heading>
       <List>
         {isLoading &&
           skeleton.map((skeleton) => <GenresListSkeleton key={skeleton} />)}
@@ -43,7 +45,7 @@ const GenreList = ({ selectedGenre, onSelectGenre }: Props) => {
                   fontWeight={
                     selectedGenre?.id === genre.id ? "bold" : "normal"
                   }
-                  color={selectedGenre?.id === genre.id ? "lightGray" : "white"}
+                  color={selectedGenre?.id === genre.id ? "red" : ""}
                   onClick={() => onSelectGenre(genre)}
                   variant="link"
                   fontSize="lg"
