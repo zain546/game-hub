@@ -10,9 +10,9 @@ export interface Genre{
 }
 
 const useGenres = ()=>useQuery<FetchResponse<Genre>,Error>({
-    queryKey:['genres'],
+    queryKey:['genres',],
     queryFn:  apiClient.getAll,
     staleTime: 1000 * 60 * 60 * 24, //24h
-    initialData:{count:genres.length,results:genres}
+    // initialData:{count:genres.length,results:genres}
 })
 export default useGenres;

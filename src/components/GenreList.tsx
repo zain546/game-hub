@@ -10,16 +10,17 @@ import {
 import useGenres, { Genre } from "../hooks/useGenres";
 import getCroppedImageUrl from "../services/image-url";
 import GenresListSkeleton from "./GenresListSkeleton";
+import { FetchResponse } from "../services/api-client";
 
 interface Props {
   onSelectGenre: (genre: Genre) => void;
-  selectedGenre: Genre | null;
+  selectedGenreId?: number;
 }
-const GenreList = ({ selectedGenre, onSelectGenre }: Props) => {
+const GenreList = ({ selectedGenreId, onSelectGenre }: Props) => {
   const skeleton = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15];
   const { data, isLoading, error } = useGenres();
   if (error) return null;
-  // if (isLoading) return <Spinner />;
+  // if (isLoading) return <Spinner / >;
   return (
     <>
       <Heading fontSize="2xl" marginBottom={3}>
@@ -28,7 +29,7 @@ const GenreList = ({ selectedGenre, onSelectGenre }: Props) => {
       <List>
         {isLoading &&
           skeleton.map((skeleton) => <GenresListSkeleton key={skeleton} />)}
-        {data?.results.map((genre) => {
+        {data?.results.map((genre: Genre) => {
           return (
             <ListItem key={genre.id} paddingY="5px">
               <HStack>
@@ -42,10 +43,8 @@ const GenreList = ({ selectedGenre, onSelectGenre }: Props) => {
                 <Button
                   whiteSpace="normal"
                   textAlign="left"
-                  fontWeight={
-                    selectedGenre?.id === genre.id ? "bold" : "normal"
-                  }
-                  color={selectedGenre?.id === genre.id ? "red" : ""}
+                  fontWeight={selectedGenreId === genre.id ? "bold" : "normal"}
+                  color={selectedGenreId === genre.id ? "red" : ""}
                   onClick={() => onSelectGenre(genre)}
                   variant="link"
                   fontSize="lg"
