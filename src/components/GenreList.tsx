@@ -4,13 +4,11 @@ import {
   HStack,
   Image,
   List,
-  ListItem,
-  Text,
+  ListItem
 } from "@chakra-ui/react";
 import useGenres, { Genre } from "../hooks/useGenres";
 import getCroppedImageUrl from "../services/image-url";
 import GenresListSkeleton from "./GenresListSkeleton";
-import { FetchResponse } from "../services/api-client";
 
 interface Props {
   onSelectGenre: (genre: Genre) => void;
