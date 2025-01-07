@@ -1,12 +1,12 @@
 import React from 'react'
-import useScreenShots from '../hooks/useScreenShots';
+import useScreenshots from '../hooks/useScreenshots';
 import { Image, SimpleGrid } from '@chakra-ui/react';
 
 interface Props{
     gameId:number;
 }
 const GameScreenshots = ({gameId}:Props) => {
-    const {data,isLoading,error} = useScreenShots(gameId);
+    const {data,isLoading,error} = useScreenshots(gameId);
     if(isLoading) return null;
     if(error) throw error;
   return (
