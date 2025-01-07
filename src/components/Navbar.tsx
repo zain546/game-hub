@@ -5,9 +5,9 @@ import SearchInput from "./SearchInput";
 import { Link } from "react-router-dom";
 const Navbar = () => {
   return (
-    <HStack p={4}>
+    <HStack p={2}>
       <Link to="/">
-      <Image className="logo" src={logo} alt="logo" boxSize={12} objectFit="cover"></Image>
+      <Image className="logo" src={logo} alt="logo" boxSize={16} objectFit="contain"></Image>
       </Link>
       <SearchInput />
       <ColorModeSwitch />
