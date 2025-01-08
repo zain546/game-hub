@@ -27,12 +27,12 @@ const HomePage = () => {
           icon={<FaBars />} // Using React Icons' FaBars for the hamburger icon
           position="absolute"
           top="80px"
-          left={4}
+          right={4}
           zIndex={10}
           onClick={onOpen}
           size="sm" // Optional: Adjusts size for better appearance
         />
-        <Drawer isOpen={isOpen} placement="left" onClose={onClose}>
+        <Drawer isOpen={isOpen} placement="right" onClose={onClose}>
           <DrawerOverlay />
           <DrawerContent maxW="250px">
             <DrawerBody>
